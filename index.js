@@ -4,6 +4,7 @@ Check your console to see the result of the following console.logs,
 and inspect the data
 */
 
+
 //THIS GETS ALL THE USERS OBJECT AND OTHER FROM OTHER FILE
 console.log("users: ", users);
 console.log("todos: ", todos);
@@ -45,40 +46,47 @@ for (let element of users) {
     }
 }
 
-for (let element of todos) {
-    var count = 0
-    if (element.id === userInputId) {
-        count++
-    }
-}
-
+// var count = 0
+// for (let element of todos) {
+//     if (element.id === userInputId) {
+//         count++
+//     }
+// }
 
 //Here we ask what want use to do with this id, add a todolist or just show 
 let userChoiceMenu = prompt(`Would you like to show the todoslist of this user ${users[userInputId - 1].name} \n or want to update the todolist with adding one there \n so either "ADD" or "SHOW" ???`)
 
 if (userChoiceMenu === "ADD" || userChoiceMenu === "add") {
+
     let userTitleToDo = prompt("Enter title of TODO wich you want to add : ")
     let userCompletedToDo = prompt("Enter if you have finished it of TODO wich you want to add so its '1' or '0' : ")
     
     const userInputObject = {
         userId : userInputId,
-        id: todos[userInputId - 1].id,
+        id: 21,
         title: userTitleToDo,
-        completed: userCompletedToDo
+        completed: Boolean(userCompletedToDo)
     }
 
     alert(`Now we will update the todolist of the user with name : ${users[userInputId - 1].name} \n and his id : ${userInputId} \n and ADD an todolist item to this user`)
     alert(`Now user is updated with a new todolist wich is : ${userTitleToDo} \n and ${Boolean(userCompletedToDo)}`)
-    console.log(`Now user is updated with a new todolist wich is : ${userTitleToDo} \n and ${Boolean(userCompletedToDo)}`)
+    console.log(`Now user is updated with a new todolist wich is title \n  : ${userTitleToDo} \n and completed : ${Boolean(userCompletedToDo)}`)
     alert("Now we will show them all")
-    
+
     for (let element of todos) {
-        if (element.userId === userInputId && element.id >= count) {
+        if (element.userId === userInputId) {
             todos.push(userInputObject)
+            break
+        }
+    }
+
+    for (let element of todos) {
+        if (element.userId === userInputId) {
             alert(`The todolist of name : ${users[userInputId - 1].name} \n and the id of todo is : ${element.id} \n and the titles are : ${element.title} \n and the status of it is : ${element.completed}`)
             console.log(`The todolist of name : ${users[userInputId - 1].name} \n and the id of todo is : ${element.id} \n and the titles are : ${element.title} \n and the status of it is : ${element.completed}`)
         }
     }
+
 }
 
 
