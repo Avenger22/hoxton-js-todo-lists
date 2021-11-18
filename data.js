@@ -1,3 +1,4 @@
+//HERE STARTS THE TODO BIG ARRAY WICH HAS LOTS OF OBJECTS, ALSO ITS PUBLIC
 const users = [
   {
     id: 1,
@@ -231,6 +232,7 @@ const users = [
   }
 ]
 
+//HERE STARTS THE TODO BIG ARRAY WICH HAS LOTS OF OBJECTS, ALSO ITS PUBLIC
 const todos = [
   {
     userId: 1,
